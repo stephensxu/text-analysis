@@ -27,14 +27,27 @@ def item_counts(array)
   counts = {} # Initialize counts to an empty Hash
 
   array.each do |item|
-    # Add code here to modify the "counts" hash accordingly
-    # You'll need to handle two cases:
-    #   1. The first time we've seen a particular item in the array
-    #   2. The second-or-later time we've seen a particular item in the array
+  	counts[item] = 0 unless counts.include?(item)
+  	counts[item] += 1
   end
-
   counts # This returns the "counts" hash
 end
+
+def char_counts(string)
+	string_array = string.split(//)
+	return item_counts(string_array)
+end
+
+def sanitize(string)
+	string.downcase
+end
+
+def analyzer(string)
+  sanitized = sanitize(string)
+  return char_counts(sanitized)
+end
+
+
 
 # "p" prints something to the screen in a way that's friendlier
 # for debugging purposes than print or puts.
