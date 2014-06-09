@@ -7,19 +7,19 @@ end
 def item_counts(array)
   counts = {} 
   array.each do |item|
-  	counts[item] = 0 unless counts.include?(item)
-  	counts[item] += 1
+    counts[item] = 0 unless counts.include?(item)
+    counts[item] += 1
   end
   counts 
 end
 
 def char_counts(string)
-	string_array = string.split(//)
-	return item_counts(string_array)
+  string_array = string.split(//)
+  return item_counts(string_array)
 end
 
 def sanitize(string)
-	string.downcase
+  string.downcase
 end
 
 def analyzer(string)
