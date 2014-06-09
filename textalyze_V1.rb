@@ -7,15 +7,14 @@ end
 def item_counts(array)
   counts = {} 
   array.each do |item|
-    counts[item] = 0 unless counts.include?(item)
+    counts[item] = 0 unless counts.has_key?(item)
     counts[item] += 1
   end
   counts 
 end
 
 def char_counts(string)
-  string_array = string.split(//)
-  return item_counts(string_array)
+  return item_counts(string.chars)
 end
 
 def sanitize(string)
@@ -23,9 +22,7 @@ def sanitize(string)
 end
 
 def analyzer(string)
-  return "Please give me something to do!" if string == nil
-  sanitized = sanitize(string)
-  return char_counts(sanitized)
+  return char_counts(sanitize(string.to_s))
 end
 
 puts analyzer(lines)
